@@ -15,8 +15,14 @@ describe DockingStation do
     expect(station).to respond_to(:dock_bike)
   end
 
-  it "docks a bike when asked yo dock a bike" do
+  it "docks a bike when asked to dock a bike" do
     station.dock_bike(bike)
     expect(station).to have_attributes(:bike => bike)
   end
+
+  it "returns bike instance if bike has been docked" do
+    station.dock_bike(bike)
+    expect(station.bike).to eq(bike)
+  end
+
 end
