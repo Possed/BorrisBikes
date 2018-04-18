@@ -2,7 +2,7 @@ require 'docking_station'
 require './lib/bike'
 describe DockingStation do
   station = DockingStation.new
-
+  bike = Bike.new
   it "responds to release_bike" do
     expect(station).to respond_to(:release_bike)
   end
@@ -11,4 +11,12 @@ describe DockingStation do
     expect(station.release_bike).to be_instance_of(Bike)
   end
 
+  it "responds to dock a bike" do
+    expect(station).to respond_to(:dock_bike)
+  end
+
+  it "docks a bike when asked yo dock a bike" do
+    station.dock_bike(bike)
+    expect(station).to have_attributes(:bike => bike)
+  end
 end
