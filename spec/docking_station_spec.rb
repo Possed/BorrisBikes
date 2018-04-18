@@ -1,4 +1,4 @@
-require 'borris_bike'
+require 'docking_station'
 describe DockingStation do
   station = DockingStation.new
   it "responds to release_bike" do
