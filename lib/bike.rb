@@ -1,6 +1,6 @@
 class Bike
 
-def is_working?
+def working?
 
-end 
+end
 end
