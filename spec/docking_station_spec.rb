@@ -25,4 +25,10 @@ describe DockingStation do
     expect(station.bike).to eq(bike)
   end
 
+  describe '#release_bike' do
+    it "raises an error when release bike after bike has already been released" do
+      expect{ station.release_bike }.to raise_error 'No bikes available'
+    end
+  end
+
 end
