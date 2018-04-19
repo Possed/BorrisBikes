@@ -1,21 +1,23 @@
 require 'docking_station'
-require './lib/bike'
 describe DockingStation do
-   station = DockingStation.new
 
+  it "had a default capacity" do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
 
   describe '#release_bike' do
-    it "raises an error when release bike after bike has already been released" do
-      expect { station.release_bike }.to raise_error 'No bikes available'
+    it "raises an error when there is no bike available" do
+      expect { subject.release_bike }.to raise_error 'No bikes available'
     end
   end
 
   describe '#dock_bike' do
-    it "raises an error when dock bike when docking station is full" do
-      bike = Bike.new
-      expect { station.dock_bike(bike) }.to raise_error 'Docking station full'
+    it "raises an error when docking station is full" do
+      subject.capacity.times { subject.dock_bike Bike.new}
+      expect { subject.dock_bike Bike.new }.to raise_error 'Docking station full'
     end
   end
+
   #
   # bike = Bike.new
   # it "responds to release_bike" do
