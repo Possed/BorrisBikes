@@ -1,6 +1,10 @@
 class Bike
 
-def working?
+  def working?
 
-end
+  end
+
+  def report_broken
+  
+  end
 end
